@@ -8,6 +8,7 @@
     "watch": "webpack --watch",
     "start": "webpack serve --open --env dev",
     "server": "node server.js --env dev",
+    "build:closeMin": "webpack --env closeMin",
     "build": "webpack"
   },
   "author": "",
