@@ -6,7 +6,6 @@ module.exports = (env) => {
     mode: env.dev ? 'development' : 'production',
     entry: {
       index: './src/index.js',
-      another: './src/another-module.js',
     },
     devtool: env.dev ? 'inline-source-map' : false,
     devServer: {
@@ -14,7 +13,7 @@ module.exports = (env) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: '代码分离',
+        title: '代码分离-动态导入',
       }),
     ],
     output: {
@@ -24,9 +23,6 @@ module.exports = (env) => {
       publicPath: '/',
     },
     optimization: {
-      splitChunks: {
-        chunks: 'all',
-      },
       minimize: !env.closeMin,
     },
   };
