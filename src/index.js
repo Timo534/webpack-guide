@@ -1,3 +1,6 @@
+import _ from 'lodash'
+import Print from './print'
+
 function appendChild(ele) {
   document.body.appendChild(ele);
 }
@@ -5,7 +8,7 @@ function appendChild(ele) {
 function init() {
   const btn = document.createElement('button');
   
-  btn.innerText = '动态加载'
+  btn.innerText = '缓存'
   
   btn.onclick = getComponent
   
@@ -14,9 +17,9 @@ function init() {
 
 async function getComponent() {
   const element = document.createElement('div');
-  const { default: _ } = await import(/* webpackPrefetch: true */ 'lodash');
   
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.onclick = Print('print webpack');
   
   appendChild(element);
 }
