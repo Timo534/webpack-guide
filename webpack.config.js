@@ -5,7 +5,9 @@ module.exports = (env) => {
   return {
     mode: env.dev ? 'development' : 'production',
     entry: {
-      index: './src/index.js',
+      one: './src/page1/index.js',
+      two: './src/page2/index.js',
+      three: './src/page3/index.js',
     },
     devtool: env.dev ? 'inline-source-map' : false,
     devServer: {

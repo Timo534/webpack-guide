@@ -2,12 +2,12 @@ function appendChild(ele) {
   document.body.appendChild(ele);
 }
 
-function init() {
-  const btn = document.createElement('button');
+function creatEle(eleName, eleText, eleCallback) {
+  const btn = document.createElement(eleName);
   
-  btn.innerText = '动态加载'
+  btn.innerText = eleText
   
-  btn.onclick = getComponent
+  btn.onclick = eleCallback
   
   appendChild(btn)
 }
@@ -19,6 +19,11 @@ async function getComponent() {
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
   
   appendChild(element);
+}
+
+function init() {
+  creatEle('h1', '页面一', null)
+  creatEle('button', '动态加载', getComponent)
 }
 
 init()
