@@ -1,3 +1,6 @@
+import '../static/static'
+import Vue from 'Vue'
+
 function appendChild(ele) {
   document.body.appendChild(ele);
 }
@@ -22,3 +25,9 @@ async function getComponent() {
 }
 
 init()
+
+window.Vue = function () {
+  console.log(Vue)
+}
+
+Vue()
