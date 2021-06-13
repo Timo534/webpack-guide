@@ -1,24 +1,15 @@
-function appendChild(ele) {
-  document.body.appendChild(ele);
+import { cube } from './math.js';
+import './useEffects'
+
+function component() {
+  const element = document.createElement('pre');
+  
+  element.innerHTML = [
+    'Hello webpack!',
+    '5 cubed is equal to ' + cube(5)
+  ].join('\n\n');
+  
+  return element;
 }
 
-function init() {
-  const btn = document.createElement('button');
-  
-  btn.innerText = '动态加载'
-  
-  btn.onclick = getComponent
-  
-  appendChild(btn)
-}
-
-async function getComponent() {
-  const element = document.createElement('div');
-  const { default: _ } = await import(/* webpackPrefetch: true */ 'lodash');
-  
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  
-  appendChild(element);
-}
-
-init()
+document.body.appendChild(component());

@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env) => {
   return {
-    mode: env.dev ? 'development' : 'production',
+    // mode: env.dev ? 'development' : 'production',
+    mode: 'development',
     entry: {
       index: './src/index.js',
     },
@@ -23,7 +24,8 @@ module.exports = (env) => {
       publicPath: '/',
     },
     optimization: {
-      minimize: !env.closeMin,
+      // minimize: !env.closeMin,
+      usedExports: true,
     },
   };
 }
