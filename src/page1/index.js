@@ -1,3 +1,5 @@
+import '../common'
+
 function appendChild(ele) {
   document.body.appendChild(ele);
 }

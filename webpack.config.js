@@ -15,7 +15,19 @@ module.exports = (env) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: '代码分离-动态导入',
+        title: 'Page One',
+        chunks: ['one'],
+        filename: "one.html"
+      }),
+      new HtmlWebpackPlugin({
+        title: 'Page Two',
+        chunks: ['two'],
+        filename: "two.html"
+      }),
+      new HtmlWebpackPlugin({
+        title: 'Page Three',
+        chunks: ['three'],
+        filename: "three.html"
       }),
     ],
     output: {
@@ -26,6 +38,9 @@ module.exports = (env) => {
     },
     optimization: {
       minimize: !env.closeMin,
+      splitChunks: {
+        chunks: "all"
+      }
     },
   };
 }
